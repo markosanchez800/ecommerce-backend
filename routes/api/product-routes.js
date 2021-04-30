@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product
+// get one product by its ID 
 router.get('/:id', async (req, res) => {
 try {
   const productData = await Product.findByPk(req.params.id,{
@@ -33,7 +33,7 @@ try {
 }
 });
 
-// create new product
+// create a new product
 router.post('/', async (req, res) => {
   /* req.body should look like this...
     {
@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
     });
 });
 
-// update product
+// update a product
 router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
@@ -107,6 +107,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+//delete a product
 router.delete('/:id', async (req, res) => {
  try{
    const productData = await Product.destroy({
